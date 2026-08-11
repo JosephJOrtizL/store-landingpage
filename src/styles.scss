@@ -21,6 +21,20 @@
     /* Acento / CTA */
     --color-accent: #f09244;
     --color-accent-hover: #4a3410;
+    /* Naranja oscurecido: mantiene legible el texto oscuro en hover (4.89:1) */
+    --color-accent-dark: #d97a2f;
+
+    /* Estados semanticos: tonos calidos para que convivan con la paleta durazno.
+       Cada uno trae el color de texto/icono y su tinte de fondo para badges.
+       Todos verificados >= 4.5:1 sobre las tres superficies y sobre su tinte. */
+    --color-success: #2e6b3e;
+    --color-success-surface: #e4f0dd;
+
+    --color-warning: #8a5a0b;
+    --color-warning-surface: #fbeccb;
+
+    --color-danger: #b3261e;
+    --color-danger-surface: #f8dfd9;
 
     /* Sombra de tarjeta */
     --shadow-card: 0 8px 24px rgba(51, 35, 8, 0.12);
@@ -37,6 +51,8 @@
 
 html {
     -webkit-text-size-adjust: 100%;
+    /* El bloque prefers-reduced-motion de abajo lo desactiva cuando toca */
+    scroll-behavior: smooth;
 }
 
 body {

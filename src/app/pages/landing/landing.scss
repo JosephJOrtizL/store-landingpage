@@ -1,3 +1,17 @@
+.hero{
+    display: grid;              // para que <app-hero> estire a lo alto
+    width: 100%;
+    min-height: 100svh;
+    background: var(--color-surface-section-alt);   // fallback si oklab no existe
+    background:
+        // resplandor calido descentrado: es lo que aporta el dinamismo
+        radial-gradient(45% 91% at 69% 49%, var(--color-accent), transparent 40%),
+        // base: crema arriba -> durazno abajo, empalma con .products
+        linear-gradient(to bottom in oklab,
+            var(--color-surface-section-alt) 45%,
+            #fdf1e6 75%,
+            var(--color-surface-card) 100%);
+}
 .products{
     padding: 40px 20px;
     background-color: var(--color-surface-section);

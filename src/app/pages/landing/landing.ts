@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ItemCard } from '../../molecules/item-card/item-card';
 import { TopProductInterface } from '../../shared/interfaces/products.interface';
+import { Hero } from '../../molecules/hero/hero';
 
 @Component({
   selector: 'app-landing',
-  imports: [ItemCard],
+  imports: [ItemCard,Hero],
   templateUrl: './landing.html',
   styleUrl: './landing.scss',
 })

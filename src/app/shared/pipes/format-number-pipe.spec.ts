@@ -1,4 +1,4 @@
-import { FormatNumberPipe } from './format-number-pipe';
+import { FormatNumberPipe } from './format-number.pipe';
 
 describe('FormatNumberPipe', () => {
   it('create an instance', () => {
