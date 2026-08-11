@@ -1,0 +1,17 @@
+<article class="item-card">
+  <img
+    class="item-card__image"
+    [src]="product.image"
+    alt="Frasco de perfume Brand Name, eau de parfum de 100 ml"
+    loading="lazy"/>
+
+  <div class="item-card__description">
+    <h3 class="item-card__title">{{product.title}}</h3>
+    <p class="item-card__text">{{product.description}}</p>
+    <p class="item-card__price">{{product.value | formatNumber}}</p>
+
+    <a class="item-card__button" href="/products/123">
+      Ver producto
+    </a>
+  </div>
+</article>

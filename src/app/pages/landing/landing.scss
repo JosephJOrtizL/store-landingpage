@@ -1,0 +1,37 @@
+.products{
+    padding: 40px 20px;
+    background-color: var(--color-surface-section);
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        margin: 0 10vw;
+    }
+
+    &__title{
+        color: var(--color-text);
+        margin-bottom: 20px;
+        font-family: Quintessential, Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 400;   // Quintessential solo existe en 400
+    }
+
+    &__items{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+
+        // mobile-first: de menor a mayor, para que el mas grande gane al final
+        @media (min-width: 550px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (min-width: 1280px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}

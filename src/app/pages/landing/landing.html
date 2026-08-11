@@ -1,0 +1,13 @@
+<p>landing works!</p>
+<section class="products">
+    <div class="products__container">
+        <div class="products__title">
+            <h2>Productos Top</h2>
+        </div>
+        <div class="products__items">
+            @for (product of topProducts; track $index) {
+                <app-item-card [product]="product"></app-item-card>
+            }
+        </div>
+    </div>
+</section>
