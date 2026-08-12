@@ -1,0 +1,58 @@
+// ---------------------------------------------------------------------------
+// Breakpoints
+//
+// Variables de Sass, NO custom properties: las media queries se evaluan antes
+// de que exista la cascada, asi que `@media (min-width: var(--x))` se ignora
+// en silencio. Estas se resuelven en tiempo de compilacion y si funcionan.
+//
+// Uso:
+//   @use 'breakpoints' as bp;
+//
+//   .cosa {
+//       @include bp.from(bp.$md) { ... }   // tablet hacia arriba (mobile-first)
+//       @include bp.until(bp.$lg) { ... }  // por debajo de tablet horizontal
+//   }
+// ---------------------------------------------------------------------------
+
+/// Movil grande / phablet en horizontal
+$sm: 550px;
+
+/// Tablet en vertical
+$md: 768px;
+
+/// Tablet en horizontal. Aqui el header pasa a menu hamburguesa
+/// y el hero oculta su imagen.
+$lg: 900px;
+
+/// Escritorio. Cuarta columna en la grilla de productos.
+$xl: 1280px;
+
+// ---------------------------------------------------------------------------
+// Mixins
+// ---------------------------------------------------------------------------
+
+/// Desde este ancho hacia arriba. Es el sentido por defecto (mobile-first).
+@mixin from($breakpoint) {
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+/// Por debajo de este ancho.
+///
+/// Resta 0.02px en vez de 1px a proposito: con zoom o pantallas de alta
+/// densidad el ancho de la ventana puede ser fraccionario, y un hueco de 1px
+/// entero deja un rango (899.5px, por ejemplo) donde no coincide ni `until`
+/// ni `from`. Con 0.02px no queda tierra de nadie.
+@mixin until($breakpoint) {
+    @media (max-width: ($breakpoint - 0.02px)) {
+        @content;
+    }
+}
+
+/// Solo dentro de este rango: desde $min hasta justo antes de $max.
+@mixin between($min, $max) {
+    @media (min-width: $min) and (max-width: ($max - 0.02px)) {
+        @content;
+    }
+}

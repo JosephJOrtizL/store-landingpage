@@ -1,0 +1,54 @@
+<section class="testimonials" id="testimonios">
+  <div class="testimonials__container">
+    <h2 class="testimonials__title">Lo que dicen quienes ya la llevan puesta</h2>
+
+    <div
+      class="testimonials__stage"
+      (mouseenter)="stop()"
+      (mouseleave)="resume()"
+      (focusin)="stop()"
+      (focusout)="resume()">
+
+      @for (item of items; track item.name; let i = $index) {
+        <article
+          class="testimonials__card testimonials__card--{{ positionOf(i) }}"
+          [attr.aria-hidden]="positionOf(i) === 'active' ? null : 'true'"
+          [attr.inert]="positionOf(i) === 'active' ? null : ''">
+
+          <p class="testimonials__quote">{{ item.quote }}</p>
+
+          <footer class="testimonials__author">
+            <span class="testimonials__name">{{ item.name }}</span>
+            <span class="testimonials__city">{{ item.city }}</span>
+          </footer>
+        </article>
+      }
+    </div>
+
+    <div class="testimonials__controls">
+      <button
+        type="button"
+        class="testimonials__nav"
+        (click)="prev()"
+        aria-label="Testimonio anterior">&#8249;</button>
+
+      <div class="testimonials__dots">
+        @for (item of items; track item.name; let i = $index) {
+          <button
+            type="button"
+            class="testimonials__dot"
+            [class.testimonials__dot--on]="i === active()"
+            (click)="goTo(i)"
+            [attr.aria-current]="i === active() ? 'true' : null"
+            [attr.aria-label]="'Ver testimonio de ' + item.name"></button>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="testimonials__nav"
+        (click)="next()"
+        aria-label="Siguiente testimonio">&#8250;</button>
+    </div>
+  </div>
+</section>

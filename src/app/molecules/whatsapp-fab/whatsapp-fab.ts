@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { WHATSAPP_URL } from '../../shared/constants/contact';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-whatsapp-fab',
   imports: [],
-  templateUrl: './hero.html',
-  styleUrl: './hero.scss',
+  templateUrl: './whatsapp-fab.html',
+  styleUrl: './whatsapp-fab.scss',
 })
-export class Hero {
+export class WhatsappFab {
   protected readonly whatsappUrl = WHATSAPP_URL;
 }

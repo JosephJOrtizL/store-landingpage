@@ -1,0 +1,44 @@
+<header class="header">
+  <div class="header__container">
+    <a
+      class="header__brand"
+      [routerLink]="['/']"
+      fragment="inicio"
+      (click)="close()">Perfumes Oficial</a>
+
+    <button
+      class="header__toggle"
+      type="button"
+      [attr.aria-expanded]="open()"
+      aria-controls="nav-principal"
+      [attr.aria-label]="open() ? 'Cerrar menu' : 'Abrir menu'"
+      (click)="toggle()">
+      <span class="header__burger" [class.header__burger--open]="open()"></span>
+    </button>
+
+    <nav
+      id="nav-principal"
+      class="header__nav"
+      [class.header__nav--open]="open()"
+      aria-label="Navegacion principal">
+
+      <ul class="header__list">
+        @for (link of links; track link.fragment) {
+          <li>
+            <a
+              class="header__link"
+              [routerLink]="['/']"
+              [fragment]="link.fragment"
+              (click)="close()">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+
+      <a
+        class="header__cta"
+        [routerLink]="['/']"
+        fragment="contact"
+        (click)="close()">Contáctanos</a>
+    </nav>
+  </div>
+</header>

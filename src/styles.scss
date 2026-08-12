@@ -36,6 +36,16 @@
     --color-danger: #b3261e;
     --color-danger-surface: #f8dfd9;
 
+    /* WhatsApp: verde de marca. Con texto oscuro da 7.65:1;
+       con blanco daria 1.98 y no pasaria AA. */
+    --color-whatsapp: #25d366;
+    --color-whatsapp-dark: #1da851;
+
+    /* Footer oscuro */
+    --color-footer-bg: #332308;
+    --color-footer-text: #fff9f4;   /* 14.52:1 */
+    --color-footer-muted: #c9b9a3;  /* 7.91:1 */
+
     /* Sombra de tarjeta */
     --shadow-card: 0 8px 24px rgba(51, 35, 8, 0.12);
 }

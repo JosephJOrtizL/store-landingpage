@@ -1,3 +1,5 @@
+@use 'breakpoints' as bp;
+
 .container{
     display: flex;
     align-items: center;
@@ -40,36 +42,78 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;   // titulo, parrafo y boton alineados a la izquierda
     justify-content: center;
-    gap: 20px;
-    text-align: center;
+    gap: 24px;
+    text-align: left;
     padding: 0 20px;
 
     &__title{
         font-family: Quintessential, Georgia, serif;
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-size: clamp(2.5rem, 5.5vw, 4rem);
+        // line-height propio: el 1.5 heredado del body deja los renglones
+        // demasiado separados cuando la tipografia es asi de grande
+        line-height: 1.1;
         font-weight: 400;
-        color:var(--color-success)
+        color: var(--color-success);
+        text-wrap: balance;
+    }
+
+    &__text{
+        // limita el ancho de linea: mas de ~55 caracteres cansa la lectura
+        max-width: 46ch;
+        font-size: 1.0625rem;
+        color: var(--color-text-muted);
     }
 
     &__cta{
-        padding: 10px 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 26px;
         border-radius: 8px;
         background: var(--color-accent);
         color: var(--color-text-on-accent);
-        font-size: 0.9375rem;
+        font-size: 1rem;
         font-weight: 600;
-        text-align: center;
         transition: background 0.2s ease;
 
         &:hover{
             background: var(--color-accent-dark);
         }
 
+        &:hover .content__cta-arrow{
+            transform: translateX(4px);
+        }
+
         &:focus-visible{
             outline: 2px solid var(--color-text);
             outline-offset: 2px;
         }
+    }
+
+    &__cta-arrow{
+        transition: transform 0.2s ease;
+    }
+}
+
+// Mismo punto donde el header cambia a menu hamburguesa: por debajo de ahi
+// la imagen y sus marcos rotados se comen casi toda la pantalla y empujan el
+// CTA fuera de vista, asi que se oculta y manda el texto.
+@include bp.until(bp.$lg) {
+    .container{
+        padding: 40px 24px;
+
+        &__image{
+            display: none;
+        }
+    }
+
+    // sin la imagen al lado, la alineacion a la izquierda pierde su razon de
+    // ser: el texto queda solo en la columna, asi que se centra
+    .content{
+        width: 100%;
+        align-items: center;
+        text-align: center;
     }
 }

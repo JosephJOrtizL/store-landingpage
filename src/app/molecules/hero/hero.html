@@ -1,8 +1,15 @@
 <article class="container">
     <div class="content">
         <h1 class="content__title">No es aroma. Es presencia.</h1>
-        <p>Descubre la esencia que habla de ti y haz de cada momento algo inolvidable.</p>
-        <a class="content__cta" [routerLink]="['/']" fragment="contact">Encuentra tu esencia</a>
+        <p class="content__text">Descubre la esencia que habla de ti y haz de cada momento algo inolvidable.</p>
+        <a
+            class="content__cta"
+            [href]="whatsappUrl"
+            target="_blank"
+            rel="noopener noreferrer">
+            Encuentra tu esencia ahora
+            <span class="content__cta-arrow" aria-hidden="true">&#8594;</span>
+        </a>
     </div>
     <div class="container__image">
         <img

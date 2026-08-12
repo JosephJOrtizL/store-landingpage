@@ -1,3 +1,5 @@
+@use 'breakpoints' as bp;
+
 .hero{
     display: grid;              // para que <app-hero> estire a lo alto
     width: 100%;
@@ -5,7 +7,7 @@
     background: var(--color-surface-section-alt);   // fallback si oklab no existe
     background:
         // resplandor calido descentrado: es lo que aporta el dinamismo
-        radial-gradient(45% 91% at 69% 49%, var(--color-accent), transparent 40%),
+        radial-gradient(85% 91% at 51% 49%, var(--color-accent), transparent 55%),
         // base: crema arriba -> durazno abajo, empalma con .products
         linear-gradient(to bottom in oklab,
             var(--color-surface-section-alt) 45%,
@@ -36,15 +38,15 @@
         gap: 20px;
 
         // mobile-first: de menor a mayor, para que el mas grande gane al final
-        @media (min-width: 550px) {
+        @include bp.from(bp.$sm) {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @media (min-width: 768px) {
+        @include bp.from(bp.$md) {
             grid-template-columns: repeat(3, 1fr);
         }
 
-        @media (min-width: 1280px) {
+        @include bp.from(bp.$xl) {
             grid-template-columns: repeat(4, 1fr);
         }
     }

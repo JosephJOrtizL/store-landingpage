@@ -1,0 +1,18 @@
+<section class="faq" id="faq">
+  <div class="faq__container">
+    <h2 class="faq__title">Preguntas frecuentes</h2>
+
+    <div class="faq__list">
+      @for (item of items; track item.question) {
+        <!-- name="faq" hace que abrir una cierre las demas, sin JavaScript -->
+        <details class="faq__item" name="faq">
+          <summary class="faq__question">
+            {{ item.question }}
+            <span class="faq__marker" aria-hidden="true"></span>
+          </summary>
+          <p class="faq__answer">{{ item.answer }}</p>
+        </details>
+      }
+    </div>
+  </div>
+</section>

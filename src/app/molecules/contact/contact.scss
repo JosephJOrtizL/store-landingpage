@@ -1,0 +1,63 @@
+:host {
+    display: block;
+}
+
+.contact {
+    padding: 80px 20px;
+    background: var(--color-surface-section);
+    scroll-margin-top: 80px;
+
+    &__container {
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__title {
+        font-family: Quintessential, Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 400;
+        color: var(--color-text);
+        margin-bottom: 12px;
+    }
+
+    &__text {
+        color: var(--color-text-muted);
+        margin-bottom: 32px;
+    }
+
+    &__cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 999px;
+        // verde de WhatsApp con texto oscuro: 7.65:1
+        background: var(--color-whatsapp);
+        color: var(--color-text);
+        font-size: 1.0625rem;
+        font-weight: 600;
+        transition: background 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background: var(--color-whatsapp-dark);
+            transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-text);
+            outline-offset: 3px;
+        }
+    }
+
+    &__cta-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    &__socials-label {
+        margin: 40px 0 8px;
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+    }
+}

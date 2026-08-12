@@ -1,0 +1,63 @@
+.fab {
+    position: fixed;
+    right: 24px;
+    // safe-area-inset: en iPhone evita que quede bajo la barra de gestos
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    z-index: 100;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    padding: 14px;
+    border-radius: 999px;
+    background: var(--color-whatsapp);
+    color: var(--color-text);
+    box-shadow: 0 6px 20px rgba(51, 35, 8, 0.28);
+    transition: background 0.2s ease, transform 0.2s ease, gap 0.25s ease, padding 0.25s ease;
+
+    &:hover {
+        background: var(--color-whatsapp-dark);
+        transform: translateY(-2px);
+        gap: 8px;
+        padding: 14px 20px 14px 16px;
+    }
+
+    &:focus-visible {
+        outline: 3px solid var(--color-text);
+        outline-offset: 3px;
+    }
+
+    &__icon {
+        width: 28px;
+        height: 28px;
+        flex: 0 0 auto;
+    }
+
+    // La etiqueta se despliega al pasar el mouse. Empieza colapsada para no
+    // tapar contenido, pero sigue en el DOM para los lectores de pantalla.
+    &__label {
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 600;
+        transition: max-width 0.25s ease;
+    }
+
+    &:hover &__label,
+    &:focus-visible &__label {
+        max-width: 140px;
+    }
+}
+
+// Uno de los pocos casos que NO usa los breakpoints compartidos: no responde
+// a la retícula sino al alcance del pulgar, asi que se mantiene independiente.
+@media (max-width: 600px) {
+    .fab {
+        right: 16px;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+
+        &__label {
+            display: none;
+        }
+    }
+}

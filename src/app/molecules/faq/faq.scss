@@ -1,0 +1,78 @@
+:host {
+    display: block;
+}
+
+.faq {
+    padding: 72px 20px;
+    background: var(--color-surface-section-alt);
+    scroll-margin-top: 80px;
+
+    &__container {
+        max-width: 780px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-family: Quintessential, Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 400;
+        color: var(--color-text);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__item {
+        background: var(--color-surface-card);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    &__question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 22px;
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--color-text);
+        list-style: none;   // quita el triangulo por defecto
+
+        &::-webkit-details-marker {
+            display: none;   // Safari
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-text);
+            outline-offset: -2px;
+        }
+    }
+
+    // flecha propia, gira al abrir
+    &__marker {
+        flex: 0 0 auto;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid var(--color-border);
+        border-bottom: 2px solid var(--color-border);
+        transform: rotate(45deg) translate(-2px, -2px);
+        transition: transform 0.2s ease;
+    }
+
+    &__item[open] &__marker {
+        transform: rotate(-135deg) translate(-2px, -2px);
+    }
+
+    &__answer {
+        padding: 0 22px 20px;
+        color: var(--color-text-muted);
+        font-size: 0.9375rem;
+    }
+}

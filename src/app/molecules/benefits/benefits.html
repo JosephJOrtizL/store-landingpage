@@ -1,0 +1,21 @@
+<section class="benefits" id="nosotros">
+  <div class="benefits__container">
+    <h2 class="benefits__title">Por que nosotros</h2>
+
+    <p class="benefits__intro">
+      Somos un emprendimiento que nacio de una idea simple: que una buena fragancia
+      no deberia ser un lujo inalcanzable. Creamos y seleccionamos perfumes cuidando
+      la calidad en cada detalle, y trabajamos para que nuestras esencias lleguen
+      a todos, sin importar donde estes.
+    </p>
+
+    <ul class="benefits__grid">
+      @for (benefit of benefits; track benefit.title) {
+        <li class="benefits__item">
+          <h3 class="benefits__item-title">{{ benefit.title }}</h3>
+          <p class="benefits__item-text">{{ benefit.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+@use 'breakpoints' as bp;
+
+:host {
+    display: block;
+}
+
+.benefits {
+    padding: 72px 20px;
+    background: var(--color-surface-section-alt);
+    scroll-margin-top: 80px;
+
+    &__container {
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__title {
+        font-family: Quintessential, Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 400;
+        color: var(--color-text);
+        margin-bottom: 16px;
+    }
+
+    &__intro {
+        max-width: 68ch;
+        margin: 0 auto 48px;
+        color: var(--color-text-muted);
+        font-size: 1.0625rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 24px;
+        text-align: left;
+
+        @include bp.from(bp.$md) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__item {
+        padding: 28px 24px;
+        background: var(--color-surface-card);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: 12px;
+    }
+
+    &__item-title {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: var(--color-text);
+        margin-bottom: 8px;
+    }
+
+    &__item-text {
+        font-size: 0.9375rem;
+        color: var(--color-text-muted);
+    }
+}

@@ -2,10 +2,15 @@ import { Component } from '@angular/core';
 import { ItemCard } from '../../molecules/item-card/item-card';
 import { TopProductInterface } from '../../shared/interfaces/products.interface';
 import { Hero } from '../../molecules/hero/hero';
+import { Benefits } from '../../molecules/benefits/benefits';
+import { Testimonials } from '../../molecules/testimonials/testimonials';
+import { Faq } from '../../molecules/faq/faq';
+import { Contact } from '../../molecules/contact/contact';
+import { Footer } from '../../molecules/footer/footer';
 
 @Component({
   selector: 'app-landing',
-  imports: [ItemCard,Hero],
+  imports: [ItemCard, Hero, Benefits, Testimonials, Faq, Contact, Footer],
   templateUrl: './landing.html',
   styleUrl: './landing.scss',
 })
