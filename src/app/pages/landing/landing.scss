@@ -37,6 +37,30 @@
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
 
+        // Solo movil: carrusel horizontal con scroll-snap nativo.
+        // Sigue siendo grid, asi que todas las tarjetas comparten la altura
+        // de la mas alta, igual que en escritorio.
+        @include bp.until(bp.$sm) {
+            grid-auto-flow: column;
+            grid-auto-columns: 78%;      // la siguiente asoma e invita a deslizar
+            grid-template-columns: none;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            overscroll-behavior-x: contain;
+
+            // Oculta la barra de scroll sin perder el scroll en si.
+            // La tarjeta que asoma al costado sigue indicando que hay mas.
+            scrollbar-width: none;          // Firefox y Chrome moderno
+            -ms-overflow-style: none;       // Edge antiguo
+            &::-webkit-scrollbar {          // WebKit antiguo
+                display: none;
+            }
+
+            app-item-card {
+                scroll-snap-align: center;
+            }
+        }
+
         // mobile-first: de menor a mayor, para que el mas grande gane al final
         @include bp.from(bp.$sm) {
             grid-template-columns: repeat(2, 1fr);
