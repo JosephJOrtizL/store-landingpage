@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "dist/store-landingpage/browser"
+
+# Fallback de SPA: sirve el index.html sin redirigir, conservando la URL
+# para que el router de Angular la pueda leer. Con 301 el navegador saltaria
+# a "/" y se perderia la ruta.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
